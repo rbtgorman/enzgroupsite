@@ -79,7 +79,7 @@ module.exports = function (eleventyConfig) {
       input: 'src',
       includes: '_includes',
       layouts: "_layouts",
-      output: 'public',
+      output: '_site',
     },
     // allows .html files to contain nunjucks templating language
     htmlTemplateEngine: 'njk',
