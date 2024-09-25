@@ -58,6 +58,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/admin');
   eleventyConfig.addPassthroughCopy('./src/_redirects');
   eleventyConfig.addPassthroughCopy({ './src/robots.txt': '/robots.txt' });
+  eleventyConfig.addPassthroughCopy('./src/images');
+
+
 
   // open on npm start and watch CSS files for changes - doesn't trigger 11ty rebuild
   eleventyConfig.setBrowserSyncConfig({
@@ -79,7 +82,7 @@ module.exports = function (eleventyConfig) {
       input: 'src',
       includes: '_includes',
       layouts: "_layouts",
-      output: '_site',
+      output: 'public',
     },
     // allows .html files to contain nunjucks templating language
     htmlTemplateEngine: 'njk',
