@@ -17,7 +17,7 @@ async function imageShortcode(src, alt, className, loading, sizes = '(max-width:
     widths: [200, 400, 850, 1920, 2500],
     formats: ['webp', 'jpeg'],
     urlPath: '/images/',
-    outputDir: './public/images',
+    outputDir: './_site/images',
     filenameFormat: function (id, src, width, format, options) {
       const extension = path.extname(src);
       const name = path.basename(src, extension);
@@ -82,7 +82,7 @@ module.exports = function (eleventyConfig) {
       input: 'src',
       includes: '_includes',
       layouts: "_layouts",
-      output: 'public',
+      output: '_site',
     },
     // allows .html files to contain nunjucks templating language
     htmlTemplateEngine: 'njk',
