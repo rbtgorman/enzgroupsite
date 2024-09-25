@@ -28,7 +28,8 @@ eleventyNavigation:
 
 <section id="cs-contact">
   <div class="cs-container">
-    <form id="cs-form" name="Contact Form" method="post">
+    <form id="cs-form" name="Contact Form" method="post" action="/thank-you/" data-netlify="true">
+      <input type="hidden" name="form-name" value="Contact Form">
       <div class="cs-content">
         <span class="cs-topper">Contact</span>
         <h2 class="cs-title">Get in Touch</h2>
@@ -73,3 +74,24 @@ eleventyNavigation:
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.querySelector('#cs-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
+      alert('Form submitted successfully!');
+      form.reset();
+    })
+    .catch((error) => alert(error));
+  });
+</script>
+
+</body>
+</html>

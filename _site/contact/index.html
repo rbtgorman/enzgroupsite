@@ -156,7 +156,8 @@
 
 <section id="cs-contact">
   <div class="cs-container">
-    <form id="cs-form" name="Contact Form" method="post">
+    <form id="cs-form" name="Contact Form" method="post" action="/thank-you/" data-netlify="true">
+      <input type="hidden" name="form-name" value="Contact Form">
       <div class="cs-content">
         <span class="cs-topper">Contact</span>
         <h2 class="cs-title">Get in Touch</h2>
@@ -194,7 +195,7 @@
       <a class="cs-link" href="tel:219-555-1234">201-707-6779</a>
       <!--Address-->
       <span class="cs-header">Address</span>
-      <a class="cs-link" href="">342 Almonesson Road, Blackwood NJ 08012 <span class="cs-block">Boston Ware 120</span></a>
+      <a class="cs-link" href="">Blackwood NJ 08012 <span class="cs-block">Boston Ware 120</span></a>
 
       <!-- Background Image-->
       <picture class="">
@@ -210,7 +211,28 @@
     </picture>
     </div>
   </div>
-</section></main>
+</section>
+
+<script>
+  const form = document.querySelector('#cs-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
+      alert('Form submitted successfully!');
+      form.reset();
+    })
+    .catch((error) => alert(error));
+  });
+</script>
+
+</body>
+</html></main>
         <!-- ============================================ -->
 <!--                   Footer                     -->
 <!-- ============================================ -->
@@ -258,7 +280,7 @@
                         <h2>Contact</h2>
                     </li>
                     <li>
-                        <a href="/contact">342 Almonesson Road<br>Blackwood NJ 08012</a>
+                        <a href="/contact">Blackwood NJ 08012</a>
                     </li>
                     <li>
                         <a href="tel:555-779-4407">T: 201-707-6779</a>
