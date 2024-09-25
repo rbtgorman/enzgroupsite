@@ -62,6 +62,7 @@
   }
   #sbs .cs-topper {
     font-size: var(--topperFontSize);
+    font-size: 1.5rem;
     line-height: 1.2em;
     text-transform: uppercase;
     text-align: left;
