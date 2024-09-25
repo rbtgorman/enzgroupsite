@@ -224,8 +224,8 @@
       body: new URLSearchParams(formData).toString()
     })
     .then(() => {
-      alert('Form submitted successfully!');
-      form.reset();
+      // Redirect to the thank-you page
+      window.location.href = "/thank-you/";
     })
     .catch((error) => alert(error));
   });
