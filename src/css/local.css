@@ -31,6 +31,27 @@
     position: absolute;
     display: block;
   }
+
+  /* Added this button container --- begins here ------------------------------------------*/
+
+  .button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust this value to increase or decrease space between buttons */
+  }
+  
+  .cs-button-solid {
+    margin: 0; /* Reset any existing margins */
+  }
+  
+  @media (max-width: 768px) {
+    .button-container {
+      flex-direction: column;
+    }
+  }
+
+/* Ends here --------------------------------------------- */
+
   #sbs .cs-picture img {
     position: absolute;
     top: 0;

@@ -27,8 +27,11 @@ eleventyNavigation:
           Over the past few years, we have completed several multi-family housing projects throughout the tri-state area. If you're interested in collaborating on an upcoming project, feel free to reach out to us today.
       </p>
       </p>
-      <a href="/about/" class="cs-button-solid">Explore More</a>
-      <a href="/contact/" class="cs-button-solid">Free Estimate</a>
+      <div class="cs-flex-group button-container">
+        <a href="/about/" class="cs-button-solid">Explore More</a>
+        <a href="/contact/" class="cs-button-solid">Free Estimate</a>
+        <button class="cs-button-solid" id="scroll-to-gallery">View Our Work</button>
+      </div>
       
     </div>
   </div>
@@ -37,6 +40,43 @@ eleventyNavigation:
   {% image './src/images/landing.jpg', 'mountains', 'cs-picture', 'eager', '(max-width: 400px) 400px, (max-width: 850px) 850px, 1920px'%}
 </section>
 
+
+
+<!-- ============================================ -->
+<!--                   Gallery                    -->
+<!-- ============================================ -->
+
+<section id="gallery">
+  <div class="cs-container">
+    <span class="cs-topper">Our Portfolio</span>
+    <h2 class="cs-title">Completed Projects <br></h2>
+    <div class="cs-image-group">
+      <!-- Row 1-->
+      <div class="cs-row cs-row-1">
+        {% image './src/images/portfolio/port1.jpg', 'new hallway', 'cs-picture cs-picture-1', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image './src/images/portfolio/port4.jpg', 'new home construction', 'cs-picture cs-picture-2', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image './src/images/portfolio/port7.jpg', 'building a new wall', 'cs-picture cs-picture-3', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+      </div>
+      <!-- Row 2 -->
+      <div class="cs-row cs-row-2">
+        {% image './src/images/portfolio/port2.jpg', 'new kitchen', 'cs-picture cs-picture-1', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image './src/images/portfolio/port5.jpg', 'apartment addition', 'cs-picture cs-picture-2', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image './src/images/portfolio/port8.jpg', 'kew kitchen cabinets', 'cs-picture cs-picture-3', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+      </div>
+      <!-- Row 3 -->
+      <div class="cs-row cs-row-3">
+        {% image './src/images/portfolio/port3.jpg', 'new kitchen', 'cs-picture cs-picture-1', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image './src/images/portfolio/port6.jpg', 'apartment addition', 'cs-picture cs-picture-2', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image './src/images/portfolio/port9.jpg', 'kew kitchen cabinets', 'cs-picture cs-picture-3', 'lazy', '(max-width: 600px) 200px, 400px'%}
+
+        <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+      </div>
+    </div>
+    <a href="/projects" class="button-solid">View Full Gallery</a>
+  </div>
+</section>
 <!-- ============================================ -->
 <!--                  Services                    -->
 <!-- ============================================ -->
@@ -130,4 +170,12 @@ eleventyNavigation:
         }
       });
   }
+</script>
+
+<script>
+  document.getElementById('scroll-to-gallery').addEventListener('click', function() {
+    document.getElementById('gallery').scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  });
 </script>
