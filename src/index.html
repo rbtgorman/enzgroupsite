@@ -27,12 +27,15 @@ eleventyNavigation:
           Over the past few years, we have completed several multi-family housing projects throughout the tri-state area. If you're interested in collaborating on an upcoming project, feel free to reach out to us today.
       </p>
       </p>
-      <div class="cs-flex-group button-container">
+      <!-- <div class="cs-flex-group button-container">
         <a href="/about/" class="cs-button-solid">Explore More</a>
         <a href="/contact/" class="cs-button-solid">Free Estimate</a>
         <button class="cs-button-solid" id="scroll-to-gallery">View Our Work</button>
-      </div>
+      </div> -->
       
+      <a href="" class="cs-button-solid">Explore More</a>
+      <a href="" class="cs-button-solid">Free Quote</a>
+      <a href="#" class="cs-button-solid" id="view-work-btn">View Our Work</a>
     </div>
   </div>
 
@@ -173,9 +176,19 @@ eleventyNavigation:
 </script>
 
 <script>
-  document.getElementById('scroll-to-gallery').addEventListener('click', function() {
-    document.getElementById('gallery').scrollIntoView({ 
-      behavior: 'smooth' 
+  function initScrollToGallery() {
+    document.getElementById('view-work-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('gallery').scrollIntoView({ 
+        behavior: 'smooth' 
+      });
     });
-  });
+  }
+
+  // Run the function after the page has loaded
+  if (document.readyState === 'complete') {
+    initScrollToGallery();
+  } else {
+    window.addEventListener('load', initScrollToGallery);
+  }
 </script>
