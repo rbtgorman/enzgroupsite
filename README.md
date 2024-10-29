@@ -6,3 +6,6 @@ The website is a starter kit designed for creating a blog using Eleventy and Net
 ## How it is deployed
 
 I used the Google Cloud Platform to host this domain, "enzgroupnj.com"
+
+
+![image](https://github.com/user-attachments/assets/98c681d7-d69b-49c5-92f1-8855a42b8e23)
