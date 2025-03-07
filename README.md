@@ -5,7 +5,7 @@ The website is a starter kit designed for creating a blog using Eleventy and Net
 
 ## How it is deployed
 
-I am hosting the domain "enzgroupnj.com" on Google Cloud Platform (GCP), where I configured the DNS settings through Cloud DNS and set up either a Compute Engine virtual machine or Google Cloud Storage for hosting. I secured the site with SSL/TLS certificates for HTTPS access and utilized GCP's Load Balancing and Cloud CDN for enhanced performance and scalability. Additionally, I implemented Cloud Monitoring and Logging to track performance and address any issues, ensuring a reliable online presence.
+I am hosting the domain "enzgroupnj.com" on Google Cloud Platform (GCP), where I configured the DNS settings through Cloud DNS and set up Google Cloud Storage for hosting. I secured the site with SSL/TLS certificates for HTTPS access and utilized GCP's Load Balancing and Cloud CDN for enhanced performance and scalability. Additionally, I implemented Cloud Monitoring and Logging to track performance and address any issues, ensuring a reliable online presence.
 
 
 ![image](https://github.com/user-attachments/assets/98c681d7-d69b-49c5-92f1-8855a42b8e23)
