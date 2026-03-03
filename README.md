@@ -1,3 +1,4 @@
+![Build Status](https://github.com/rbtgorman/enzgroupsite/actions/workflows/deploy.yml/badge.svg)
 
 ## Overview
 
