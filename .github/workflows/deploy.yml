@@ -1,4 +1,48 @@
-deploy:
+name: Build and Deploy Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build Site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Eleventy site
+        run: npm run build
+
+      - name: Confirm build output
+        run: |
+          echo "Build completed successfully"
+          echo "Output directory contents:"
+          ls -la _site/
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-build
+          path: _site/
+          retention-days: 7
+
+  deploy:
     name: Deploy to Netlify
     runs-on: ubuntu-latest
     needs: build
