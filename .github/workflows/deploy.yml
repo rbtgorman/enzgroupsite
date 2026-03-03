@@ -36,7 +36,7 @@ jobs:
           ls -la _site/
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: site-build
           path: _site/
