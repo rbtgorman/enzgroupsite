@@ -41,3 +41,46 @@ jobs:
           name: site-build
           path: _site/
           retention-days: 7
+
+  deploy:
+    name: Deploy to GCP
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Eleventy site
+        run: npm run build
+
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up GCP SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Deploy to GCP Cloud Storage
+        run: |
+          gsutil -m rsync -r -d _site/ gs://${{ secrets.GCP_BUCKET_NAME }}
+
+      - name: Set files to public
+        run: |
+          gsutil -m acl -r ch -u AllUsers:R gs://${{ secrets.GCP_BUCKET_NAME }}
+
+      - name: Confirm deployment
+        run: |
+          echo "Deployment complete!"
+          echo "Site deployed to: https://www.enzgroupnj.com"
